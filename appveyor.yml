@@ -1,7 +1,7 @@
-os: Windows Server 2012 R2
+os: Visual Studio 2015
 
 install:
-  set PATH=C:\Qt5.6\msvc2015\bin;%PATH%
+  set PATH=C:\Qt\5.6\msvc2015\bin;%PATH%
 
 build_script:
   - qmake dental_office.pro
