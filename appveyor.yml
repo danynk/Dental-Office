@@ -4,4 +4,5 @@ install:
   set PATH=C:\Qt\5.6\msvc2015\bin;%PATH%
 
 build_script:
-  - qmake dental_office.pro
+  - ps: $env:AppBuildDate=get-date -format "yyyy-MM-dd"
+  - qmake dental_office.pro BUILD_DATE=%AppBuildDate%
