@@ -3,7 +3,12 @@ TEMPLATE = app
 SOURCES += \
     main.cpp
 
-DEFINES += BUILD_DATE='"\\\"$${system(date /t +%F)}\\\""'
-DEFINES += BUILD_DATE_v2='"\\\"$(shell date +%F)\\\""'
+isEmpty(BUILD_DATE) {
+
+  equals(TEMPLATE, "app"){
+    unix:DEFINES += BUILD_DATE='"\\\"$(shell date %F)\\\""'
+    win32:DEFINES += BUILD_DATE='"\\\"$${system(date /t)}\\\""'
+  }
+}
 
 message("QMake DEFINE:" $${DEFINES})
